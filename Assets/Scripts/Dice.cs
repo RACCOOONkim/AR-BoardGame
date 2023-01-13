@@ -18,13 +18,10 @@ public class Dice : MonoBehaviour {
     private int result = 1;
 
     void Start() {
-
+        //todo
     }
 
     void Update() {
-        //todo don't do this
-        if (Input.GetMouseButtonDown(1)) Roll();
-
         if(rolling && IsStatic()) {
             result = faces[CalculateResultFromAngle() - 1];
             rolling = false;

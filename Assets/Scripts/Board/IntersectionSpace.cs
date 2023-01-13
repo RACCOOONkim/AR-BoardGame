@@ -7,8 +7,12 @@ public class IntersectionSpace : BaseBoardSpace {
     public BaseBoardSpace[] connected = { };
 
     public override void Next(BaseBoardSpace previous, int n, Action<BaseBoardSpace> cons) {
-        if (n <= 0) cons(this);
+        if (n <= 0) {
+            cons(this);
+            return;
+        }
 
+        Debug.Log("prev: " + previous.name + " this: " + name + " n: " + n);
         foreach (BaseBoardSpace c in connected) {
             if (c == previous) continue;
             c.Next(this, n - 1, cons);
