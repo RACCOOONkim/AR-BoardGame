@@ -47,15 +47,14 @@ public class Dice : MonoBehaviour {
     }
 
     private int CalculateResultFromAngle() {
-        Vector3 f = transform.forward;
-        if (f.x > THRESH) return 1;
-        if (f.y > THRESH) return 2;
-        if(f.z > THRESH) return 3;
-        if(f.x < -THRESH) return 4;
-        if(f.y < -THRESH) return 5;
-        if(f.z < -THRESH) return 6;
+        if (transform.forward.y > THRESH) return 1;
+        if (transform.up.y > THRESH) return 2;
+        if(transform.right.y > THRESH) return 3;
+        if(transform.forward.y < -THRESH) return 4;
+        if(transform.up.y < -THRESH) return 5;
+        if(transform.right.y < -THRESH) return 6;
 
-        return 1;
+        return 0;
     }
 
     public bool IsRolling() {
