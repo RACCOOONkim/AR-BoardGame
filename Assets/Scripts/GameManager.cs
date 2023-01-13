@@ -15,15 +15,21 @@ public class GameManager : MonoBehaviour {
 
     public BaseBoardSpace startSpace;
     public Quaternion startRotation;
-    public GameObject targetPrefab;
+    public GameObject targetPrefab, lightPiecePrefab, darkPiecePrefab;
 
     [Header("Settings")]
     public int maxPieces = 5;
     public int pieceObjective = 3;
 
+    [Header("Boards")]
+    public BaseBoardSpace[] mars;
+    public BaseBoardSpace[] uranus;
+
     [Header("Debug")]
     public GameState state = GameState.None;
     public int round = 0;
+
+    private List<Item> tmpSeq = new List<Item>();
 
     public enum GameState {
         None,
@@ -39,6 +45,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         Init();
+        PlaceItems();
     }
 
     private void Update() {
@@ -75,6 +82,20 @@ public class GameManager : MonoBehaviour {
             p.transform.rotation = startRotation;
             p.Init();
         }
+    }
+
+    public void PlaceItems() {
+        tmpSeq.Clear();
+        for (int i = 0; i < maxPieces; i++) {
+            tmpSeq.Add(Instantiate(lightPiecePrefab).GetComponent<Item>());
+        }
+        BoardUtils.PlaceItemsRandom(mars, tmpSeq, b => b.item == null && b != startSpace);
+
+        tmpSeq.Clear();
+        for (int i = 0; i < maxPieces; i++) {
+            tmpSeq.Add(Instantiate(darkPiecePrefab).GetComponent<Item>());
+        }
+        BoardUtils.PlaceItemsRandom(uranus, tmpSeq, b => b.item == null && b != startSpace);
     }
 
     public Player CurrentPlayer() {

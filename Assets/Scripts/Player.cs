@@ -7,10 +7,12 @@ public class Player : MonoBehaviour {
     [SerializeField] private Vector3 offset = Vector3.zero;
     [SerializeField] private float walkDuration = 0.2f, walkBounce = 0.2f;
     [SerializeField] private float flyDuration = 0.7f, flyBounce = 1f;
+    [SerializeField] private TrailRenderer trail;
 
     public BaseBoardSpace currentSpace;
     public int lightPiece, darkPiece;
 
+    public List<Item> items = new List<Item>();
     private List<BaseBoardSpace> tmpHistory = new List<BaseBoardSpace>();
 
     public void Init() {
@@ -67,5 +69,11 @@ public class Player : MonoBehaviour {
         currentSpace = space;
         transform.position = space.transform.position + offset;
         transform.SetParent(space.transform);
+    }
+
+    public Vector3 TrailPos(float f) {
+        if(trail.positionCount == 0) return transform.position;
+        f = 1 - f;
+        return trail.GetPosition(Mathf.Min(Mathf.FloorToInt(trail.positionCount * f), trail.positionCount - 1));
     }
 }
