@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager main;
+    [Header("Preset Fields")]
     public Camera cam;
 
     public Dice dice;
@@ -16,6 +17,11 @@ public class GameManager : MonoBehaviour {
     public Quaternion startRotation;
     public GameObject targetPrefab;
 
+    [Header("Settings")]
+    public int maxPieces = 5;
+    public int pieceObjective = 3;
+
+    [Header("Debug")]
     public GameState state = GameState.None;
     public int round = 0;
 
@@ -67,6 +73,7 @@ public class GameManager : MonoBehaviour {
         foreach (Player p in players) {
             p.SetSpace(startSpace);
             p.transform.rotation = startRotation;
+            p.Init();
         }
     }
 
@@ -142,11 +149,21 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
-        currentPlayer++;
-        if (currentPlayer >= players.Length) {
-            currentPlayer = 0;
-            round++;
+        if (CheckWinner()) {
+            Debug.Log(CurrentPlayer().name + " wins!");
         }
-        state = GameState.WaitForTurn;
+        else {
+            currentPlayer++;
+            if (currentPlayer >= players.Length) {
+                currentPlayer = 0;
+                round++;
+            }
+            state = GameState.WaitForTurn;
+        }
+    }
+
+    private bool CheckWinner() {
+        Player p = CurrentPlayer();
+        return p.lightPiece >= pieceObjective && p.darkPiece >= pieceObjective;
     }
 }

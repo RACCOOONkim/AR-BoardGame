@@ -7,9 +7,15 @@ public class Player : MonoBehaviour {
     [SerializeField] private Vector3 offset = Vector3.zero;
     [SerializeField] private float walkDuration = 0.2f, walkBounce = 0.2f;
     [SerializeField] private float flyDuration = 0.7f, flyBounce = 1f;
+
     public BaseBoardSpace currentSpace;
+    public int lightPiece, darkPiece;
 
     private List<BaseBoardSpace> tmpHistory = new List<BaseBoardSpace>();
+
+    public void Init() {
+        lightPiece = darkPiece = 0;
+    }
 
     public void MoveConsumer(int n, Action<BaseBoardSpace, List<BaseBoardSpace>> cons) {
         tmpHistory.Clear();

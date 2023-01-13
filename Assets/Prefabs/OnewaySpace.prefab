@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6258414122502542284}
   - component: {fileID: 6258414122502542282}
   - component: {fileID: 6258414122502542285}
-  - component: {fileID: -3306598586954222109}
+  - component: {fileID: 6579568311264629625}
   m_Layer: 0
-  m_Name: IntersectionSpace
+  m_Name: OnewaySpace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 453242ae49c88fe4e87fd0044f7d246c, type: 2}
+  - {fileID: 2100000, guid: de9e8ead223c1e14d99157e91a1b4922, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-3306598586954222109
+--- !u!114 &6579568311264629625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6258414122502542287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db321328b9e6e9c4182b5f290e83d797, type: 3}
+  m_Script: {fileID: 11500000, guid: ccb2ac18e23fec64cb06f465780adacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connected: []
+  spaceAfter: {fileID: 0}
