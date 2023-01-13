@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour {
     public float animDuration = 1f, loseDuration = 1f, movementLerp = 30f;
+    public GameObject obtainFx;
     protected bool obtained = false;
     protected Player obtainedPlayer = null;
 
@@ -56,6 +57,9 @@ public abstract class Item : MonoBehaviour {
 
     IEnumerator IObtain(float duration, Action next) {
         yield return new WaitForSeconds(duration);
+        if (obtainFx is not null) {
+            Instantiate(obtainFx, transform.position, Quaternion.identity);
+        }
         obtained = true;
         next();
     }
