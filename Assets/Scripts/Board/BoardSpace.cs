@@ -6,19 +6,20 @@ using UnityEngine;
 public class BoardSpace : BaseBoardSpace {
     public BaseBoardSpace spaceBefore, spaceAfter;
 
-    public override void Next(BaseBoardSpace previous, int n, Action<BaseBoardSpace> cons) {
+    public override void Next(BaseBoardSpace previous, int n, Action<BaseBoardSpace, List<BaseBoardSpace>> cons, List<BaseBoardSpace> history) {
+        history.Add(this);
         if (n <= 0) {
-            cons(this);
+            cons(this, history);
             return;
         }
 
-        Debug.Log("prev: " + ((previous is null) ? "null" : previous.name) + " this: " + name + " n: " + n);
-        if (spaceBefore == previous && (spaceAfter is not null) && (previous is not null)) spaceAfter.Next(this, n - 1, cons);
-        else if(spaceAfter == previous && (spaceBefore is not null) && (previous is not null)) spaceBefore.Next(this, n - 1, cons);
+        if (spaceBefore == previous && (spaceAfter is not null) && (previous is not null)) spaceAfter.Next(this, n - 1, cons, history);
+        else if(spaceAfter == previous && (spaceBefore is not null) && (previous is not null)) spaceBefore.Next(this, n - 1, cons, history);
         else {
             //one-way merge
-            if (spaceAfter is not null) spaceAfter.Next(this, n - 1, cons);
-            if (spaceBefore is not null) spaceBefore.Next(this, n - 1, cons);
+            var newHistory = new List<BaseBoardSpace>(history);
+            if (spaceAfter is not null) spaceAfter.Next(this, n - 1, cons, history);
+            if (spaceBefore is not null) spaceBefore.Next(this, n - 1, cons, newHistory);
         }
     }
 

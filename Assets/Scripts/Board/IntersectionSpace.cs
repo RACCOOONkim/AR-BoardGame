@@ -6,16 +6,18 @@ using UnityEngine;
 public class IntersectionSpace : BaseBoardSpace {
     public BaseBoardSpace[] connected = { };
 
-    public override void Next(BaseBoardSpace previous, int n, Action<BaseBoardSpace> cons) {
+    public override void Next(BaseBoardSpace previous, int n, Action<BaseBoardSpace, List<BaseBoardSpace>> cons, List<BaseBoardSpace> history) {
+        history.Add(this);
         if (n <= 0) {
-            cons(this);
+            cons(this, history);
             return;
         }
 
-        Debug.Log("prev: " + previous.name + " this: " + name + " n: " + n);
         foreach (BaseBoardSpace c in connected) {
             if (c == previous) continue;
-            c.Next(this, n - 1, cons);
+            else {
+                c.Next(this, n - 1, cons, new List<BaseBoardSpace>(history));
+            }
         }
     }
 

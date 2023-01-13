@@ -144,4 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
+  walkDuration: 0.2
+  walkBounce: 0.5
+  flyDuration: 0.7
+  flyBounce: 1.5
   currentSpace: {fileID: 0}

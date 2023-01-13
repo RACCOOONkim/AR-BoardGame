@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager main;
+    public Camera cam;
 
     public Dice dice;
     public int lastRoll = 0;
@@ -49,7 +50,10 @@ public class GameManager : MonoBehaviour {
                 break;
             case GameState.Choosing:
                 if (Input.GetMouseButtonDown(0)) {
-
+                    Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+                    if (Physics.Raycast(ray, out RaycastHit rinfo, 50f, 1 << 12)) {
+                        rinfo.transform.GetComponent<MoveTarget>().Clicked();
+                    }
                 }
                 break;
         }
@@ -83,9 +87,9 @@ public class GameManager : MonoBehaviour {
     private void StartPlayerChoice() {
         state = GameState.Choosing;
 
-        CurrentPlayer().MoveConsumer(lastRoll, b => {
+        CurrentPlayer().MoveConsumer(lastRoll, (b, h) => {
             MoveTarget mt = Instantiate(targetPrefab, b.transform).GetComponent<MoveTarget>();
-            mt.Set(b);
+            mt.Set(b, h);
         });
         if (GameObject.FindGameObjectWithTag("MoveTarget") is null) {
             Debug.Log("Nowhere to go!");
@@ -109,8 +113,27 @@ public class GameManager : MonoBehaviour {
         state = GameState.EndTurn;
     }
 
-    public void AdvancePlayer(Player player, BaseBoardSpace space, bool triggerEffects) {
-        //todo move
+    public void AdvancePlayer(Player player, BaseBoardSpace space, bool triggerEffects, List<BaseBoardSpace> history = null) {
+        if(history is null) {
+            player.FlyTo(space, () => {
+                if (triggerEffects) {
+                    space.StepOn(player, () => {
+                        EndTurn();
+                    });
+                }
+                else EndTurn();
+            });
+        }
+        else {
+            player.WalkTo(history, () => {
+                if (triggerEffects) {
+                    space.StepOn(player, () => {
+                        EndTurn();
+                    });
+                }
+                else EndTurn();
+            });
+        }
     }
 
     public void EndTurn() {
