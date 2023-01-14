@@ -18,12 +18,42 @@ MonoBehaviour:
     m_Storage: []
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 4770847395722044068
-      m_GuidHigh: 16725552448723100846
+      m_GuidLow: 5578299927773360779
+      m_GuidHigh: 17652396409496795783
     m_SerializedTextureGuid:
-      m_GuidLow: 13692217190383183912
-      m_GuidHigh: 9612417626004309464
-    m_Size: {x: 0.1, y: 0.13333334}
+      m_GuidLow: 4903090351702019435
+      m_GuidHigh: 14437338529184962984
+    m_Size: {x: 0.001, y: 0.001}
     m_SpecifySize: 1
-    m_Name: KakaoTalk_20230113_202153010_02
-    m_Texture: {fileID: 0}
+    m_Name: MarsBoard1
+    m_Texture: {fileID: 2800000, guid: 7ad80d6b46b2440ba8592166e6ba5bc8, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4719236877407895849
+      m_GuidHigh: 686397463253278118
+    m_SerializedTextureGuid:
+      m_GuidLow: 7207027602632745925
+      m_GuidHigh: 12749562319516903193
+    m_Size: {x: 0.001, y: 0.001}
+    m_SpecifySize: 1
+    m_Name: MarsBoard2
+    m_Texture: {fileID: 2800000, guid: 8d5c23c5816b640419a78228618befb0, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5398066642887662691
+      m_GuidHigh: 15516192996843768203
+    m_SerializedTextureGuid:
+      m_GuidLow: 8405913036278464204
+      m_GuidHigh: 7776583099088838490
+    m_Size: {x: 0.001, y: 0.001}
+    m_SpecifySize: 1
+    m_Name: UranusBoard1
+    m_Texture: {fileID: 2800000, guid: bc33fecccd5e74a75a1f7f6320f9eb6b, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4760001583367089754
+      m_GuidHigh: 2471678077074613651
+    m_SerializedTextureGuid:
+      m_GuidLow: 13027518359604550668
+      m_GuidHigh: 17874625728733642280
+    m_Size: {x: 0.001, y: 0.001}
+    m_SpecifySize: 1
+    m_Name: UranusBoard2
+    m_Texture: {fileID: 2800000, guid: e11bdc0c0aecb4cb28fe397e656d0ff8, type: 3}

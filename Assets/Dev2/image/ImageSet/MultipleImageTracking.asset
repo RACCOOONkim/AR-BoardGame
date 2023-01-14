@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: MultipleImageTracking
+  m_EditorClassIdentifier: 
+  m_GuidLow: 4641327066625140824
+  m_GuidHigh: 8412447360795488941
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5096408468474841934
+      m_GuidHigh: 17096607573610820528
+    m_SerializedTextureGuid:
+      m_GuidLow: 14141263083051626137
+      m_GuidHigh: 16699113551875204713
+    m_Size: {x: 0.1, y: 0.05}
+    m_SpecifySize: 1
+    m_Name: venus1
+    m_Texture: {fileID: 2800000, guid: b4a32e99dbd9c43f69e66ebb4c2bbfe7, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5501982145321569607
+      m_GuidHigh: 3955378755876178053
+    m_SerializedTextureGuid:
+      m_GuidLow: 2637559788418869283
+      m_GuidHigh: 8689039959589536648
+    m_Size: {x: 0.1, y: 0.05}
+    m_SpecifySize: 1
+    m_Name: venus2
+    m_Texture: {fileID: 2800000, guid: 368fa8237ea7249a88438286ceab9578, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5321414356350784403
+      m_GuidHigh: 15021151532692692632
+    m_SerializedTextureGuid:
+      m_GuidLow: 2628775076346056476
+      m_GuidHigh: 15108861630869394345
+    m_Size: {x: 0.1, y: 0.05}
+    m_SpecifySize: 1
+    m_Name: Uranus1
+    m_Texture: {fileID: 2800000, guid: 0c01cf1c4901247ba9d37f649a75add1, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4937215667390020420
+      m_GuidHigh: 180520468687965084
+    m_SerializedTextureGuid:
+      m_GuidLow: 8375710496539340290
+      m_GuidHigh: 2068335354541443753
+    m_Size: {x: 0.1, y: 0.05}
+    m_SpecifySize: 1
+    m_Name: Uranus2
+    m_Texture: {fileID: 2800000, guid: f7bcee028051743ca90ad3e30b34b41c, type: 3}
