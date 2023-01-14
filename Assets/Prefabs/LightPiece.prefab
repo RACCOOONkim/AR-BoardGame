@@ -146,6 +146,7 @@ MonoBehaviour:
   loseDuration: 1
   movementLerp: 30
   obtainFx: {fileID: 4426177648370774883, guid: d59af89a3e22d764ea555ca358503e1f, type: 3}
+  mrenderer: {fileID: 2242985409553832990}
   amount: 1
   isLight: 1
   lightFx: {fileID: 2546315669678175599, guid: 9504e101f5545cf42bdcb844ae5803f7, type: 3}

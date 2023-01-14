@@ -6,6 +6,8 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour {
     public float animDuration = 1f, loseDuration = 1f, movementLerp = 30f;
     public GameObject obtainFx;
+
+    protected BaseBoardSpace space;
     protected bool obtained = false;
     protected Player obtainedPlayer = null;
 
@@ -26,6 +28,7 @@ public abstract class Item : MonoBehaviour {
 
     public void Place(BaseBoardSpace space) {
         space.item = this;
+        this.space = space;
         transform.position = space.transform.position;
         transform.SetParent(space.transform);
         obtained = false;
@@ -38,6 +41,7 @@ public abstract class Item : MonoBehaviour {
             return;
         }
         player.items.Add(this);
+        space.item = null;
         obtainedPlayer = player;
         transform.SetParent(null);
         OnObtain(player);
@@ -55,8 +59,20 @@ public abstract class Item : MonoBehaviour {
         StartCoroutine(IWait(loseDuration, next));
     }
 
+    public void Remove(Player player, Action next) {
+        if (!player.items.Remove(this)) {
+            next();
+            return;
+        }
+        obtained = false;
+        obtainedPlayer = null;
+        OnRemove(player);
+        next();
+    }
+
     IEnumerator IObtain(float duration, Action next) {
         yield return new WaitForSeconds(duration);
+        OnAfterObtain();
         if (obtainFx is not null) {
             Instantiate(obtainFx, transform.position, Quaternion.identity);
         }
@@ -69,7 +85,12 @@ public abstract class Item : MonoBehaviour {
         next();
     }
 
+    public virtual void OnAfterObtain() {
+    }
+
     public abstract void OnObtain(Player player);
 
     public abstract void OnLose(Player player);
+
+    public abstract void OnRemove(Player player);
 }

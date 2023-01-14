@@ -15,6 +15,7 @@ public class LightPieceEffect : MonoBehaviour {
         float f = 0;
         while (f < 1f) {
             pivot.transform.localPosition = Vector3.up * f * (1 - f) * jumpHeight * 4f;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, f * 0.2f);
             f += Time.deltaTime / duration;
             yield return null;
         }

@@ -23,6 +23,10 @@ public class OnewaySpace : BaseBoardSpace {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position + Vector3.up * 0.2f, spaceAfter.transform.position);
         }
+        if (mission is not null) {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position + Vector3.up * 0.4f, 0.2f);
+        }
     }
 #endif
 }
