@@ -6428,7 +6428,7 @@ MonoBehaviour:
   maxPieces: 5
   pieceObjective: 3
   mars:
-  - {fileID: 0}
+  - {fileID: 6258414121201717770}
   - {fileID: 5349165637425141722}
   - {fileID: 92941952}
   - {fileID: 15722522}
@@ -6440,8 +6440,8 @@ MonoBehaviour:
   - {fileID: 923848268}
   - {fileID: 1879623559}
   - {fileID: 1754694720}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1924326941}
+  - {fileID: 946756938}
   - {fileID: 1856730340}
   - {fileID: 37313188}
   - {fileID: 1188426191}
@@ -6453,14 +6453,14 @@ MonoBehaviour:
   - {fileID: 201445154}
   - {fileID: 484456884}
   - {fileID: 1670849349}
-  - {fileID: 0}
+  - {fileID: 1638609394}
   uranus:
-  - {fileID: 0}
+  - {fileID: 2049330442}
   - {fileID: 1973182163}
   - {fileID: 1587153333}
   - {fileID: 2145912625}
   - {fileID: 1507780404}
-  - {fileID: 0}
+  - {fileID: 2018955971}
   - {fileID: 1422719637}
   - {fileID: 496439379}
   - {fileID: 149674943}
@@ -6473,12 +6473,12 @@ MonoBehaviour:
   - {fileID: 1000562179}
   - {fileID: 504616979}
   - {fileID: 1223937180}
-  - {fileID: 0}
+  - {fileID: 812090895}
   - {fileID: 1682980361}
   - {fileID: 600744330}
   - {fileID: 1332287978}
   - {fileID: 861415833}
-  - {fileID: 0}
+  - {fileID: 1271290641}
   - {fileID: 1763109591}
   - {fileID: 1799860675}
   - {fileID: 333541513}
