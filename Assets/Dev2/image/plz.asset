@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: plz
+  m_EditorClassIdentifier: 
+  m_GuidLow: 4767923655513319844
+  m_GuidHigh: 2715610949756034724
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 4834785993251609355
+      m_GuidHigh: 10218101841105969316
+    m_SerializedTextureGuid:
+      m_GuidLow: 13014806161599032534
+      m_GuidHigh: 12403104407448188345
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: MarsBoard1
+    m_Texture: {fileID: 2800000, guid: a2acecd6e13fb49db9f5077ebead20ac, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4675306662166914690
+      m_GuidHigh: 1533692198395891899
+    m_SerializedTextureGuid:
+      m_GuidLow: 9515966126327449218
+      m_GuidHigh: 15906685581597792682
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: MarsBoard2
+    m_Texture: {fileID: 2800000, guid: 2e65c68280c6840faad9f65c42e6bfdc, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5044883907979963036
+      m_GuidHigh: 6333973113071755159
+    m_SerializedTextureGuid:
+      m_GuidLow: 10682587740144527019
+      m_GuidHigh: 5568687483102926504
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: UranusBoard1
+    m_Texture: {fileID: 2800000, guid: 6d41e6ab2cf39440a89683ffc2f3474d, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5170853816374492151
+      m_GuidHigh: 7646890504727072668
+    m_SerializedTextureGuid:
+      m_GuidLow: 8411005544324069291
+      m_GuidHigh: 8555822066203106040
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: UranusBoard2
+    m_Texture: {fileID: 2800000, guid: a946f7abe4fa74b9f81a7ca9d662bc76, type: 3}

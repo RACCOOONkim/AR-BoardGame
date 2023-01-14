@@ -6,8 +6,8 @@ using UnityEngine.XR.ARFoundation;
 
 public class MultipleImageTracker : MonoBehaviour
 {
-    private bool LeftMap = false; // false-> venus left
-    private bool RightMap = false; // false -> venus Right
+    //private bool LeftMap = false; // false-> venus left
+    //private bool RightMap = false; // false -> venus Right
 
     private ARTrackedImageManager trackedImageManager;
 
@@ -62,7 +62,7 @@ public class MultipleImageTracker : MonoBehaviour
         spawnedObject[referenceImageName].transform.rotation = trackedImage.transform.rotation;
 
         spawnedObject[referenceImageName].SetActive(true);
-        if(trackedImage.name == "UranusBoard1")
+        /*if(trackedImage.name == "UranusBoard1")
         {
             LeftMap = true;
         }
@@ -77,7 +77,7 @@ public class MultipleImageTracker : MonoBehaviour
         else
         {
             RightMap = false;
-        }
+        }*/
     }
     //////
    
