@@ -30,8 +30,10 @@ public class ChangePieceMission : Mission {
                 Quaternion localRot = formerModel.localRotation;
                 Vector3 localScale = formerModel.localScale;
                 Destroy(formerModel.gameObject);
-                GameObject latterModel = Instantiate(to.transform.GetChild(0).gameObject, localPos, localRot, lp.transform);
-                latterModel.transform.localScale = localScale;
+                Transform latterModel = Instantiate(to.transform.GetChild(0).gameObject, lp.transform).transform;
+                latterModel.localPosition = localPos;
+                latterModel.localRotation = localRot;
+                latterModel.localScale = localScale;
 
                 break;
             }

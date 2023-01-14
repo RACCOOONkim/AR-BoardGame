@@ -422,6 +422,10 @@ PrefabInstance:
       value: SpaceDark (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6044774848376053559, guid: a6432ea0adbd8e643935a19e436637ef, type: 3}
+      propertyPath: mission
+      value: 
+      objectReference: {fileID: 11400000, guid: 96182a5c4943a24498cf05dd46005880, type: 2}
+    - target: {fileID: 6044774848376053559, guid: a6432ea0adbd8e643935a19e436637ef, type: 3}
       propertyPath: spaceAfter
       value: 
       objectReference: {fileID: 865525455}
@@ -4811,6 +4815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OnewaySpace
       objectReference: {fileID: 0}
+    - target: {fileID: 6579568311264629625, guid: d6022814651cf6345a325e3243206372, type: 3}
+      propertyPath: mission
+      value: 
+      objectReference: {fileID: 11400000, guid: 0593c980233706d4baa3806ff782dedd, type: 2}
     - target: {fileID: 6579568311264629625, guid: d6022814651cf6345a325e3243206372, type: 3}
       propertyPath: spaceAfter
       value: 
