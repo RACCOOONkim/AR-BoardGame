@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     [SerializeField] private float walkDuration = 0.2f, walkBounce = 0.2f;
     [SerializeField] private float flyDuration = 0.7f, flyBounce = 1f;
     [SerializeField] private TrailRenderer trail;
+    [SerializeField] private AudioSource walkAudio;
 
     public BaseBoardSpace currentSpace;
     public int lightPiece, darkPiece;
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour {
     IEnumerator IWalk(List<BaseBoardSpace> history, Action next) {
         int i = 0;
         while (i < history.Count - 1) {
+            walkAudio.Play();
             BaseBoardSpace c = history[i];
             BaseBoardSpace n = history[i + 1];
             transform.forward = (n.transform.position - c.transform.position);
@@ -56,6 +58,7 @@ public class Player : MonoBehaviour {
     IEnumerator IFly(BaseBoardSpace c, BaseBoardSpace n, Action next) {
         float f = 0;
         transform.forward = (n.transform.position - c.transform.position);
+        walkAudio.Play();
         while (f < 1) {
             float h = f * (1 - f) * flyBounce * 4;
             transform.position = Vector3.Lerp(c.transform.position, n.transform.position, f) + Vector3.up * h + offset;

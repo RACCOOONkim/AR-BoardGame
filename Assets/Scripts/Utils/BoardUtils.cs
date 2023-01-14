@@ -20,7 +20,7 @@ public static class BoardUtils {
 
     public static void PlaceItemRandom(BaseBoardSpace[] board, Item item, Func<BaseBoardSpace, bool> filter) {
         tmpSeq.Clear();
-        foreach (BoardSpace space in board) {
+        foreach (BaseBoardSpace space in board) {
             if (filter(space)) tmpSeq.Add(space);
         }
 
