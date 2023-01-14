@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
         while (i < history.Count - 1) {
             BaseBoardSpace c = history[i];
             BaseBoardSpace n = history[i + 1];
+            transform.forward = (n.transform.position - c.transform.position);
             float f = 0;
             while(f < 1) {
                 float h = f * (1 - f) * walkBounce * 4;
@@ -54,6 +55,7 @@ public class Player : MonoBehaviour {
 
     IEnumerator IFly(BaseBoardSpace c, BaseBoardSpace n, Action next) {
         float f = 0;
+        transform.forward = (n.transform.position - c.transform.position);
         while (f < 1) {
             float h = f * (1 - f) * flyBounce * 4;
             transform.position = Vector3.Lerp(c.transform.position, n.transform.position, f) + Vector3.up * h + offset;

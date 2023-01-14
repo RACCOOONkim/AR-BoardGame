@@ -15,10 +15,10 @@ public class GlobalLossMission : Mission {
             int c = amount;
             for (int i = 0; i < p.items.Count; i++) {
                 if (c <= 0) break;
-                if ((player.items[i] is LightPiece lp) && lp.isLight == isLight) {
+                if ((p.items[i] is LightPiece lp) && lp.isLight == isLight) {
                     c--;
-                    if (loseFx is not null) Instantiate(loseFx, player.items[i].transform.position, Quaternion.identity);
-                    player.items[i].Lose(player, () => { });
+                    if (loseFx is not null) Instantiate(loseFx, p.items[i].transform.position, Quaternion.identity);
+                    p.items[i].Lose(p, () => { });
                     i--;//because its getting removed
                 }
             }

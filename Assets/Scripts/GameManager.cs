@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
     public Quaternion startRotation;
     public GameObject targetPrefab, lightPiecePrefab, darkPiecePrefab;
 
+    public bool goAgainPlayerFlag = false;
+
     [Header("Settings")]
     public int maxPieces = 5;
     public int pieceObjective = 3;
@@ -174,10 +176,15 @@ public class GameManager : MonoBehaviour {
             Debug.Log(CurrentPlayer().name + " wins!");
         }
         else {
-            currentPlayer++;
-            if (currentPlayer >= players.Length) {
-                currentPlayer = 0;
-                round++;
+            if (goAgainPlayerFlag) {
+                goAgainPlayerFlag = false;
+            }
+            else {
+                currentPlayer++;
+                if (currentPlayer >= players.Length) {
+                    currentPlayer = 0;
+                    round++;
+                }
             }
             state = GameState.WaitForTurn;
         }
