@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
     public GameObject targetPrefab, lightPiecePrefab, darkPiecePrefab;
 
     public bool goAgainPlayerFlag = false;
+    public bool[] restPlayerFlag;
 
     [Header("Settings")]
     public int maxPieces = 5;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour {
     [Header("Boards")]
     public BaseBoardSpace[] mars;
     public BaseBoardSpace[] uranus;
+    public bool leftFlipped = false, rightFlipped = false;
 
     [Header("Debug")]
     public GameState state = GameState.None;
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         main = this;
+        restPlayerFlag = new bool[players.Length];
     }
 
     private void Start() {
@@ -83,6 +86,10 @@ public class GameManager : MonoBehaviour {
             p.SetSpace(startSpace);
             p.transform.rotation = startRotation;
             p.Init();
+        }
+
+        for (int i = 0; i < players.Length; i++) {
+            restPlayerFlag[i] = false;
         }
     }
 
@@ -180,13 +187,22 @@ public class GameManager : MonoBehaviour {
                 goAgainPlayerFlag = false;
             }
             else {
-                currentPlayer++;
-                if (currentPlayer >= players.Length) {
-                    currentPlayer = 0;
-                    round++;
-                }
+                AdvanceTurn();
             }
             state = GameState.WaitForTurn;
+        }
+    }
+
+    private void AdvanceTurn() {
+        currentPlayer++;
+        if (currentPlayer >= players.Length) {
+            currentPlayer = 0;
+            round++;
+        }
+
+        if (restPlayerFlag[currentPlayer]) {
+            restPlayerFlag[currentPlayer] = false;
+            AdvanceTurn();
         }
     }
 
