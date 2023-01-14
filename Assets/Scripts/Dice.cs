@@ -8,6 +8,7 @@ public class Dice : MonoBehaviour {
 
     [SerializeField] private Rigidbody rigid;
     public Vector3 startPosition = Vector3.zero;
+    public GameObject puffFx, throwFx;
 
     [Header("Roll Dice")]
     public float throwForce = 5f;
@@ -18,13 +19,10 @@ public class Dice : MonoBehaviour {
     private int result = 1;
 
     void Start() {
-
+        //todo
     }
 
     void Update() {
-        //todo don't do this
-        if (Input.GetMouseButtonDown(1)) Roll();
-
         if(rolling && IsStatic()) {
             result = faces[CalculateResultFromAngle() - 1];
             rolling = false;
@@ -34,8 +32,10 @@ public class Dice : MonoBehaviour {
     }
 
     public void Roll() {
+        Instantiate(puffFx, transform.position, Quaternion.identity);
         rigid.position = startPosition;
         rigid.rotation = Random.rotation;
+        Instantiate(throwFx, startPosition, Quaternion.identity);
         rigid.velocity = new Vector3(Random.Range(-throwSkew, throwSkew), 1, Random.Range(-throwSkew, throwSkew)) * throwForce;
         rigid.angularVelocity = new Vector3(Random.Range(-throwTorque, throwTorque), throwTorque, Random.Range(-throwTorque, throwTorque));
 
