@@ -62,7 +62,7 @@ public class MultipleImageTracker : MonoBehaviour
         spawnedObject[referenceImageName].transform.rotation = trackedImage.transform.rotation;
 
         spawnedObject[referenceImageName].SetActive(true);
-        if(trackedImage.name == "Uranus1")
+        if(trackedImage.name == "UranusBoard1")
         {
             LeftMap = true;
         }
@@ -70,7 +70,7 @@ public class MultipleImageTracker : MonoBehaviour
         {
             LeftMap = false;
         }
-        if (trackedImage.name == "Uranus2")
+        if (trackedImage.name == "UranusBoard2")
         {
             RightMap = true;
         }
